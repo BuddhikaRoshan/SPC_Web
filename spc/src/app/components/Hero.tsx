@@ -2,8 +2,10 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const Hero = () => {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -21,14 +23,13 @@ const Hero = () => {
     { name: 'ABOUT', href: '/about' },
     { name: 'DIVISIONS', href: '/projects' },
     { name: 'SERVICES', href: '/services' },
-    {name:'NEWS & MEDIA',href:'/news'},
+    { name: 'NEWS & MEDIA', href: '/news' },
     { name: 'DOWNLOAD', href: '/download' },
     { name: 'CAREERS', href: '/careers' },
     { name: 'CONTACT', href: '/contact' },
   ];
 
   useEffect(() => {
-    // Try to play video and handle autoplay restrictions
     const video = videoRef.current;
     const playVideo = async () => {
       if (video) {
@@ -36,7 +37,6 @@ const Hero = () => {
           await video.play();
         } catch (err) {
           console.log("Autoplay prevented:", err);
-          // Add play button or other UI to handle this case
         }
       }
     };
@@ -45,35 +45,37 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative h-screen flex flex-col">
+    <div className="relative h-screen flex flex-col">
       {/* Header */}
       <header className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled ? 'bg-white/90 backdrop-blur-md shadow-md py-2' : 'bg-transparent py-4'
       }`}>
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
-            {/* Logo */}
             <Link href="/" className="text-2xl font-bold text-white">
               <span className={isScrolled ? 'text-gray-900' : 'text-white'}>SPC</span>
               <span className="text-orange-500">.</span>
             </Link>
 
-            {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => (
                 <Link 
-                  key={link.name}
+                  key={link.href}
                   href={link.href}
-                  className={`font-medium transition-colors ${
-                    isScrolled ? 'text-gray-700 hover:text-orange-600' : 'text-white hover:text-orange-300'
+                  className={`relative px-3 py-2 text-sm font-medium transition-colors ${
+                    pathname === link.href
+                      ? 'text-amber-500 font-bold'
+                      : 'text-gray-700 hover:text-amber-500'
                   }`}
                 >
                   {link.name}
+                  {pathname === link.href && (
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-amber-500"></span>
+                  )}
                 </Link>
               ))}
             </nav>
 
-            {/* Mobile menu button */}
             <button 
               className="md:hidden p-2"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -87,27 +89,23 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="md:hidden bg-white shadow-lg">
             <div className="px-4 py-2 space-y-4 pb-4">
               {navLinks.map((link) => (
                 <Link
-                  key={link.name}
+                  key={link.href}
                   href={link.href}
-                  className="block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md"
+                  className={`block px-3 py-2 text-gray-800 hover:bg-gray-100 rounded-md ${
+                    pathname === link.href
+                      ? 'text-amber-500 font-bold'
+                      : ''
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {link.name}
                 </Link>
               ))}
-              <Link
-                href="/get-started"
-                className="block px-3 py-2 text-center text-white bg-orange-600 rounded-md hover:bg-orange-700"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Get Started
-              </Link>
             </div>
           </div>
         )}
@@ -122,23 +120,33 @@ const Hero = () => {
           loop
           playsInline
           className="w-full h-full object-cover"
-          poster="/next.svg" // Using a simple placeholder
+          poster="/next.svg"
         >
           <source src="hero1.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="absolute inset-0 bg-black/40"></div>
-      </div>
-      
-      
-      
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
-        <div className="animate-bounce w-6 h-10 border-2 border-white rounded-full flex justify-center items-start p-1">
-          <div className="w-1 h-2 bg-white rounded-full"></div>
+        <div className="absolute inset-0 bg-black/50"></div>
+        
+        {/* Scroll Indicator */}
+        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <div 
+            onClick={() => {
+              const nextSection = document.getElementById('welcome-section');
+              nextSection?.scrollIntoView({ behavior: 'smooth' });
+            }}
+            className="flex flex-col items-center cursor-pointer group"
+          >
+            <div className="w-6 h-10 border-2 border-white rounded-full flex justify-center p-1">
+              <div className="w-1 h-2 bg-white rounded-full animate-bounce"></div>
+            </div>
+            <span className="text-white text-sm mt-2 opacity-70 group-hover:opacity-100 transition-opacity">
+              Scroll Down
+            </span>
+          </div>
         </div>
       </div>
-    </section>
+      
+    </div>
   );
 };
 
