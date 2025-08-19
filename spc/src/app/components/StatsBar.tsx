@@ -93,7 +93,7 @@ const StatsBar = () => {
             Our Impact in Numbers
           </h2>
           <div className="w-24 h-1 bg-amber-300 mx-auto mb-6"></div>
-          <p className="text-orange-100 max-w-2xl mx-auto">
+          <p className="text-orange-100 max-w-2xl mx-auto text-justify">
             Delivering excellence and innovation in printing services for over five decades
           </p>
         </div>
@@ -113,7 +113,7 @@ const StatsBar = () => {
               <div className="text-4xl md:text-5xl font-bold mb-2 bg-gradient-to-r from-white to-amber-100 bg-clip-text text-transparent">
                 <AnimatedCounter value={stat.number} suffix={stat.suffix} />
               </div>
-              <div className="text-sm md:text-base font-medium text-orange-100">
+              <div className="text-sm md:text-base font-medium text-orange-100 text-justify">
                 {stat.label}
               </div>
             </motion.div>

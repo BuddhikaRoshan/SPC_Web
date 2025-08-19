@@ -44,7 +44,7 @@ const ServicesSection = () => {
           <h2 className="text-3xl font-bold text-gray-900 sm:text-4xl">
             Our Services
           </h2>
-          <p className="mt-4 text-xl text-gray-600">
+          <p className="mt-4 text-xl text-gray-600 text-justify max-w-4xl mx-auto">
             Comprehensive printing and documentation solutions for government needs
           </p>
         </div>
@@ -73,7 +73,7 @@ const ServicesSection = () => {
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 {service.title}
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-600 text-justify">
                 {service.description}
               </p>
             </div>

@@ -26,18 +26,18 @@ const WelcomeSection = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
               Welcome to <span className="text-orange-500">Government Printing Department</span>
             </h2>
-            <p className="text-gray-600 mb-6 leading-relaxed">
-            Established in 1968 by an Act of Parliament of the Democratic Socialist Republic of Sri Lanka, the State Printing Corporation (SPC) has been a trusted name in quality printing for over five decades.
+            <p className="text-gray-600 mb-6 leading-relaxed text-justify">
+              Established in 1968 by an Act of Parliament of the Democratic Socialist Republic of Sri Lanka, the State Printing Corporation (SPC) has been a trusted name in quality printing for over five decades.
 
 
 
 
             </p>
-            <p className="text-gray-600 mb-8 leading-relaxed">
-            Initially focused on printing school books and commercial publications, SPC has evolved into a dynamic institution leading creative and innovative printing projects nationwide. With advanced equipment and expert staff, we ensure every project is handled with precision, efficiency, and uncompromised quality.
+            <p className="text-gray-600 mb-8 leading-relaxed text-justify">
+              Initially focused on printing school books and commercial publications, SPC has evolved into a dynamic institution leading creative and innovative printing projects nationwide. With advanced equipment and expert staff, we ensure every project is handled with precision, efficiency, and uncompromised quality.
             </p>
-            <p className="text-gray-600 mb-8 leading-relaxed">
-            Our experienced Sales and Estimating team will guide you through tailored solutions, helping you make the right choices for your printing needs.
+            <p className="text-gray-600 mb-8 leading-relaxed text-justify">
+              Our experienced Sales and Estimating team will guide you through tailored solutions, helping you make the right choices for your printing needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link 

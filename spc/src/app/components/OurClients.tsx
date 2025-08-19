@@ -27,7 +27,7 @@ const OurClients = () => {
             OUR <span className="text-orange-500">CLIENTS</span>
           </h2>
           <div className="w-20 h-1 bg-orange-500 mx-auto mb-6"></div>
-          <p className="text-gray-600 max-w-3xl mx-auto">
+          <p className="text-gray-600 max-w-3xl mx-auto text-center">
             We are proud to serve a diverse range of clients across various sectors, 
             including government institutions, educational organizations, and private enterprises.
           </p>
@@ -53,10 +53,10 @@ const OurClients = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <p className="text-gray-600 italic">
+          <h2 className="text-gray-600 italic bold text-xl text-center max-w-9xl mx-auto ">
             "We value the trust our clients place in us and are committed to delivering 
             exceptional printing services that meet their unique needs."
-          </p>
+          </h2>
         </div>
       </div>
     </section>

@@ -43,8 +43,8 @@ const Footer = () => {
             <h3 className="text-2xl font-bold mb-6">
               <span className="text-orange-500">SPC</span>
             </h3>
-            <p className="text-gray-400 mb-4">
-            Delivering high-quality, secure, and cost-effective printing solutions to government and private institutions across Sri Lanka.
+            <p className="text-gray-400 mb-4 text-justify">
+              Delivering high-quality, secure, and cost-effective printing solutions to government and private institutions across Sri Lanka.
             </p>
             <div className="flex space-x-4 mt-4">
               {socialLinks.map((social, index) => (
@@ -101,7 +101,7 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-6 text-orange-400">Contact Us</h4>
             <ul className="space-y-3">
               {contactInfo.map((item, index) => (
-                <li key={index} className="text-gray-400 flex items-start">
+                <li key={index} className="text-gray-400 flex items-start text-justify">
                   {item.text}
                 </li>
               ))}
@@ -119,7 +119,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="flex flex-col md:flex-row justify-center items-center">
-          <p className="text-gray-500 text-sm text-center">
+          <p className="text-gray-500 text-sm text-center text-justify">
             &copy; {currentYear} SPC. All rights reserved.
           </p>
         </div>

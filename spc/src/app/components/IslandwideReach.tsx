@@ -26,7 +26,7 @@ const IslandwideReach = () => {
             <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
               ISLANDWIDE <span className="text-orange-500">REACH</span>
             </h2>
-            <p className="text-gray-600 mb-6 leading-relaxed">
+            <p className="text-gray-600 mb-6 leading-relaxed text-justify">
               Our extensive distribution network spans across all provinces of Sri Lanka, ensuring 
               timely delivery of high-quality printed materials to every corner of the island.
             </p>
@@ -36,25 +36,25 @@ const IslandwideReach = () => {
               <ul className="space-y-2 text-gray-600">
                 <li className="flex items-start">
                   <span className="text-orange-500 mr-2">•</span>
-                  <span>Covering all 9 provinces and 25 districts</span>
+                  <span className="text-justify">Covering all 9 provinces and 25 districts</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-500 mr-2">•</span>
-                  <span>Strategic distribution centers in key locations</span>
+                  <span className="text-justify">Strategic distribution centers in key locations</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-500 mr-2">•</span>
-                  <span>Efficient logistics for both urban and rural areas</span>
+                  <span className="text-justify">Efficient logistics for both urban and rural areas</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-orange-500 mr-2">•</span>
-                  <span>Timely delivery guaranteed</span>
+                  <span className="text-justify">Timely delivery guaranteed</span>
                 </li>
               </ul>
             </div>
             
             <div className="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500">
-              <p className="text-gray-700 italic">
+              <p className="text-gray-700 italic text-justify">
                 "Our commitment to nationwide coverage ensures that no matter where you are in Sri Lanka, 
                 you can rely on our printing and distribution services."
               </p>
