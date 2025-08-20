@@ -34,27 +34,11 @@ const newsArticles = [
   },
 ];
 
-const pressReleases = [
-  {
-    id: 1,
-    title: 'SPC Announces Q2 2025 Financial Results',
-    date: '2025-08-05',
-    type: 'PDF',
-    url: '/downloads/press-releases/q2-2025-results.pdf',
-  },
-  {
-    id: 2,
-    title: 'New Partnership with Global Paper Supplier',
-    date: '2025-07-20',
-    type: 'PDF',
-    url: '/downloads/press-releases/partnership-announcement.pdf',
-  },
-];
 
 const mediaGallery = [
   { id: 1, type: 'image', url: '/images/gallery/factory-tour-1.jpg', title: 'Our Printing Facility', category: 'Facility' },
   { id: 2, type: 'image', url: '/images/gallery/team-2025.jpg', title: 'SPC Team 2025', category: 'Team' },
-  { id: 3, type: 'video', url: 'https://www.youtube.com/embed/example123', title: 'Our Printing Process', category: 'Process' },
+  { id: 3, type: 'video', url: 'https://www.youtube.com/watch?v=8D9Gi_aKsHc&t=104s&pp=ygUac3RhdGUgcHJpbnRpbmcgY29ycG9yYXRpb24%3D', title: 'Our Printing Process', category: 'Process' },
   { id: 4, type: 'image', url: '/images/gallery/print-samples.jpg', title: 'Print Samples', category: 'Portfolio' },
 ];
 
@@ -133,56 +117,17 @@ export default function NewsPage() {
           </div>
         </section>
 
-        {/* Press Releases Section */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
-            <FaFilePdf className="mr-2 text-amber-600" />
-            Press Releases
-          </h2>
-          
-          <div className="bg-white rounded-lg shadow-md overflow-hidden">
-            <ul className="divide-y divide-gray-200">
-              {pressReleases.map((release) => (
-                <li key={release.id} className="hover:bg-gray-50">
-                  <a 
-                    href={release.url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="block p-6 hover:bg-gray-50 transition-colors duration-200"
-                  >
-                    <div className="flex justify-between items-center">
-                      <div>
-                        <h3 className="text-lg font-medium text-gray-900">{release.title}</h3>
-                        <p className="text-sm text-gray-500 mt-1">
-                          {new Date(release.date).toLocaleDateString('en-US', {
-                            year: 'numeric',
-                            month: 'long',
-                            day: 'numeric',
-                          })}
-                        </p>
-                      </div>
-                      <div className="text-amber-600">
-                        <FaFilePdf className="h-6 w-6" />
-                      </div>
-                    </div>
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <div className="px-6 py-4 bg-gray-50 text-right">
-              <Link href="/news/press-releases" className="text-amber-600 hover:text-amber-700 font-medium">
-                View All Press Releases <FaArrowRight className="inline ml-1" />
-              </Link>
-            </div>
-          </div>
-        </section>
-
         {/* Media Gallery Section */}
         <section>
-          <h2 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
-            <FaImage className="mr-2 text-amber-600" />
-            Media Gallery
-          </h2>
+          <div className="flex justify-between items-center mb-8">
+            <h2 className="text-2xl font-bold text-gray-900 flex items-center">
+              <FaImage className="mr-2 text-amber-600" />
+              Media Gallery
+            </h2>
+            <Link href="/news/gallery-archive" className="text-amber-600 hover:text-amber-700 flex items-center">
+              View Full Gallery <FaArrowRight className="ml-1" />
+            </Link>
+          </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {mediaGallery.map((item) => (
@@ -208,12 +153,6 @@ export default function NewsPage() {
                 </div>
               </div>
             ))}
-          </div>
-          
-          <div className="mt-6 text-right">
-            <Link href="/news/gallery" className="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium">
-              View Full Gallery <FaArrowRight className="ml-1" />
-            </Link>
           </div>
         </section>
       </div>
